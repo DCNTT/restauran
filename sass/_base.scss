@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+/* _base */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ruby {
+    ruby-align: distribute-space;
+    ruby-overhang: auto;
+    ruby-position: above;
+}
+
+html {
+    color: #333;
+    font-size: 62.5%;
+}
+html,
+body {
+    position: relative;
+}
+body {
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック",
+        "MS PGothic", sans-serif;
+    font-feature-settings: "palt";
+    -webkit-font-feature-settings: "pkna";
+    -webkit-writing-mode: horizontal-tb;
+    -ms-writing-mode: lr-tb;
+    writing-mode: horizontal-tb;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(212, 171, 55, 0.9);
+    -webkit-touch-callout: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    letter-spacing: 0.1rem;
+}
+
+/* 文字サイズ */
+$txt14: 1.4rem;
+
+.txt-bold {
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html .fixed,
+body .fixed {
+    height: 100%;
+    overflow: hidden;
+}
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+a {
+    color: #999;
+    text-decoration: underline;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+a img,
+a:visited img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-text-decoration-skip: none;
+}
+a:hover,
+a:visited:hover {
+    opacity: 0.4;
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+p {
+    font-size: $txt14;
+    text-align: justify;
+    line-height: 1.8;
+    text-justify: inter-ideograph;
+    text-justify: inter-character;
+}
+
+/* メディアクエリ */
+@mixin media($a: false, $b: false, $c: false) {
+    $value: lg;
+    @if ($a == $value or $b == $value or $c == $value) {
+        @media print, screen and (min-width: 1000px) {
+            @content;
+        }
+    }
+
+    $value: md;
+    @if ($a == $value or $b == $value or $c == $value) {
+        @media print, screen and (min-width: 768px) {
+            @content;
+        }
+    }
+
+    $value: sm;
+    @if ($a == $value or $b == $value or $c == $value) {
+        @media print, screen and (min-width: 600px) {
+            @content;
+        }
+    }
+}
